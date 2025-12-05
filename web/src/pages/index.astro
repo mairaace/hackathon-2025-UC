@@ -13,13 +13,15 @@ import Card from '../components/Card.astro'
 	</section>
 
 	<section class="py-12 px-4 max-w-6xl mx-auto">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
 			<Card 
+				cardId="diving"
 				title="DIVING IN OFG"
 				description="Ingresa la sigla de un curso y encuentra optativos parecidos basados su descripción."
 				inputLabel="Sigla del curso"
 				inputPlaceholder="Ej: AST101, SUS1000..."
 				buttonText="Navegar cursos similares..."
+				redirectTo="/diving"
 			/>
 			
 			<Card 
