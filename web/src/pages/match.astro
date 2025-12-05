@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Match Your OFG - OFG Match UC">
+    <section class="py-12 px-4 max-w-2xl mx-auto">
+        <h1 class="text-4xl font-bold mb-6">MATCH YOUR OFG</h1>
+        <p class="text-lg text-[var(--neutral-primary)] mb-8">
+            Ingresa tu usuario de BuscaCursos UC y recibe recomendaciones personalizadas
+        </p>
+        
+        <div class="mb-6">
+            <label class="block mb-2.5 text-sm font-medium text-[var(--neutral-primary)]">
+                Usuario de BuscaCursos UC
+            </label>
+            <input 
+                type="text" 
+                id="usuario"
+                class="bg-[var(--neutral-secondary-soft)] border border-[var(--border-default)] text-[var(--text-heading)] text-sm rounded-[var(--rounded-base)] focus:ring-[var(--brand)] focus:border-[var(--brand)] block w-full px-3 py-2.5 shadow-[var(--shadow-xs)] placeholder:text-[var(--text-body)]" 
+                placeholder="Ej: catkitten, loonatech..."
+            />
+        </div>
+
+        <button 
+            id="btnBuscar"
+            type="button"
+            class="inline-flex items-center text-white bg-[var(--brand)] box-border border border-transparent hover:bg-[var(--brand-strong)] focus:ring-4 focus:ring-[var(--brand-medium)] shadow-[var(--shadow-xs)] font-medium leading-5 rounded-[var(--rounded-base)] text-sm px-4 py-2.5 focus:outline-none w-full justify-center"
+        >
+            Buscar recomendaciones
+        </button>
+
+        <div id="resultado" class="mt-8"></div>
+    </section>
+</Layout>
+
+<script>
+    const btnBuscar = document.getElementById('btnBuscar');
+    const inputUsuario = document.getElementById('usuario');
+    const resultado = document.getElementById('resultado');
+
+    btnBuscar.addEventListener('click', async () => {
+        const usuario = inputUsuario.value.trim();
+        
+        if (!usuario) {
+            resultado.innerHTML = '<p style="color:red;">Por favor ingresa un usuario</p>';
+            return;
+        }
+
+        btnBuscar.disabled = true;
+        btnBuscar.textContent = 'Buscando...';
+
+        try {
+            const response = await fetch('http://localhost:8000/recomendar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ nombre: usuario })
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                resultado.innerHTML = `<p style="color:red;">${data.error}</p>`;
+                return;
+            }
+
+            let html = `<h2 class="text-2xl font-bold mb-4">Top 5 recomendaciones para ${data.usuario}</h2>`;
+            html += '<ol class="space-y-4">';
+
+            data.recomendaciones.forEach(rec => {
+                html += `
+                    <li class="bg-[var(--card-bg)] p-4 border border-[var(--border-default)] rounded-[var(--rounded-base)]">
+                        <strong class="text-lg">${rec.rank}. ${rec.nombre}</strong>
+                        <br/>
+                        <small class="text-[var(--neutral-primary)]">Calificación predicha: ${rec.calificacion}/5</small>
+                    </li>
+                `;
+            });
+
+            html += '</ol>';
+            resultado.innerHTML = html;
+
+        } catch (error) {
+            resultado.innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+        } finally {
+            btnBuscar.disabled = false;
+            btnBuscar.textContent = 'Buscar recomendaciones';
+        }
+    });
+
+    // Buscar al presionar Enter
+    inputUsuario.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            btnBuscar.click();
+        }
+    });
+</script>
