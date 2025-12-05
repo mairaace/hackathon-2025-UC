@@ -1,0 +1,8 @@
+/* Import de externos */
+@import "tailwindcss"; 
+
+/* Import de internos */
+@import "./variables.css";
+@import "./base.css";
+@import "./components.css";
+@import "./utilities.css";

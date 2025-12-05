@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Blockquote from '../components/Blockquote.astro'
+import Card from '../components/Card.astro'
+---
+
+<Layout title="Inicio - OFG Match UC">
+	<section class="py-12 px-4">
+		<Blockquote 
+			text="OFG Match UC busca transformar la experiencia de encontrar tu próximo curso de formación general. Solo ingresa la sigla, y te proporcionaremos un top de los optativos similares al que buscas"
+			author="Equipo OFG Match UC"
+		/>
+	</section>
+
+	<section class="py-12 px-4 max-w-6xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<Card 
+				title="DIVING IN OFG"
+				description="Ingresa la sigla de un curso y encuentra optativos parecidos basados su descripción."
+				inputLabel="Sigla del curso"
+				inputPlaceholder="Ej: AST101, SUS1000..."
+				buttonText="Navegar cursos similares..."
+			/>
+			
+			<Card 
+				title="MATCH YOUR OFG"
+				description="Ingresa tu usuario de BuscaCursos UC y recibe recomendaciones personalizadas de OFGs."
+				inputLabel="Usuario de BuscaCursos UC"
+				inputPlaceholder="Ej: catkitten, loonatech..."
+				buttonText="Hacer match..."
+			/>
+		</div>
+	</section>
+</Layout>

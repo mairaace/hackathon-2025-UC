@@ -1,0 +1,100 @@
+/* Markdown content styles - Responsive */
+.content-markdown {
+	@apply overflow-hidden break-words;
+	word-wrap: break-word;
+	hyphens: auto;
+}
+
+.content-markdown h1 {
+	@apply mb-4 text-xl font-bold break-words sm:text-2xl;
+}
+
+.content-markdown h2 {
+	@apply mt-6 mb-3 text-lg font-semibold break-words sm:text-xl;
+}
+
+.content-markdown h3 {
+	@apply mt-4 mb-2 text-base font-medium break-words sm:text-lg;
+}
+
+.content-markdown h4 {
+	@apply mt-3 mb-2 text-sm font-medium break-words sm:text-base;
+}
+
+.content-markdown p {
+	@apply mb-4 leading-relaxed break-words;
+}
+
+.content-markdown ul,
+.content-markdown ol {
+	@apply mb-4 pl-4 sm:pl-6;
+}
+
+.content-markdown ul {
+	@apply list-disc;
+}
+
+.content-markdown ol {
+	@apply list-decimal;
+}
+
+.content-markdown li {
+	@apply mb-1 break-words;
+}
+
+.content-markdown a {
+	@apply text-blue-600 break-words hover:underline;
+	word-break: break-all;
+}
+
+.content-markdown blockquote {
+	@apply mb-4 border-l-4 border-gray-300 pl-4 break-words italic;
+}
+
+.content-markdown code {
+	@apply bg-gray-100 rounded px-1 py-0.5 text-xs break-all sm:text-sm;
+	word-break: break-all;
+}
+
+.content-markdown pre {
+	@apply bg-gray-100 mb-4 overflow-x-auto rounded p-2 text-xs sm:p-4 sm:text-sm;
+	max-width: 100%;
+}
+
+.content-markdown pre code {
+	@apply bg-transparent p-0;
+	word-break: normal;
+}
+
+.content-markdown table {
+	@apply mb-4 w-full border-collapse block overflow-x-auto whitespace-nowrap;
+	font-size: 0.875rem;
+}
+
+.content-markdown th,
+.content-markdown td {
+	@apply border border-gray-300 px-2 py-2 text-left break-words sm:px-4;
+}
+
+.content-markdown th {
+	@apply bg-gray-50 font-medium;
+}
+
+.content-markdown img {
+	@apply mb-4 h-auto max-w-full rounded;
+}
+
+.content-markdown strong {
+	@apply font-semibold;
+}
+
+.content-markdown em {
+	@apply italic;
+}
+
+/* Responsive table */
+@media (min-width: 640px) {
+	.content-markdown table {
+		@apply table whitespace-normal;
+	}
+}

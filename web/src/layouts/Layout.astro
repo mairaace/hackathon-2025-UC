@@ -1,0 +1,32 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+
+interface Props {
+  title?: string;
+  breadcrumb?: string;
+}
+
+const { title = "ofg match uc", breadcrumb } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/heart-book.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <main class="pt-20">
+      {breadcrumb && (
+        <div class="px-4 py-2 text-sm text-[var(--text-body)]">
+          <a href="/" class="hover:text-[var(--fg-brand)]">Inicio</a> / {breadcrumb}
+        </div>
+      )}
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro'
+import FAQ from '../components/FAQ.astro'
+---
+
+<Layout title="Sobre el Proyecto - OFG Match UC" breadcrumb="Sobre el Proyecto">
+  <section class="py-12 px-4 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-[var(--text-heading)] mb-8 text-center">Sobre el Proyecto</h1>
+    
+    <div class="mb-12">
+      <p class="text-lg text-[var(--text-body)] mb-4">
+        Conoce más sobre <strong>OFG MATCH UC</strong>, una iniciativa creada en el marco de <strong> HACKSCATE OSUC 2025 </strong> por el equipo Chicas Superpoderosas.
+      </p>
+    </div>
+
+    <h2 class="text-2xl font-semibold text-[var(--text-heading)] mb-6">¡Preguntitas frecuentes!</h2>
+    
+    <div class="space-y-2">
+      <FAQ 
+        question="¿Qué es OFG MATCH UC?" 
+        answer="Es una herramienta compuesta por dos servicios: DIVING IN OFG UC Y YOUR OFG MATCH UC. Ambos tienen el objetivo general de ayudarte a encontrar una variedad de cursos de formación general (OFG) que se alineen con tus intereses"
+      />
+      
+      <FAQ 
+        question="¿Cómo funciona DIVING IN OFG UC?" 
+        answer="Utilizamos algoritmos de machine learning, en particular técnicas de procesamiento de lenguaje natural (NLP), para analizar y comparar descripciones de cursos y encontrar similitudes. Usamos un modelo preentrenado llamado TF-IDF para vectorizar las palabras y calcular qué tan similares son entre sí"
+      />
+
+      <FAQ
+        question="¿Cómo funciona YOUR OFG MATCH UC?" 
+        answer="Con un enfoque en tu propia experiencia, este servicio utiliza tu historial de reviews y calificaciones de la aplicación de BuscaCursos UC para recomendar OFGs que se ajusten a tus preferencias personales. Con un KNN un modelo de machine learning de clasificación, se analizan tus datos para sugerirte de un universo de otros datos los que estés más cercanos a tus gustos"
+      />
+      
+      <FAQ 
+        question="¿Es gratis?" 
+        answer="Sí, el servicio básico es completamente gratuito y Open Source. Nos mueve el acceso libre a herramientas que faciliten la experiencia académica :)"
+      />
+    </div>
+  </section>
+</Layout>

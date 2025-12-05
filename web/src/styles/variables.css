@@ -1,0 +1,44 @@
+/* Theme variables with OKLCH colors */
+@theme static inline {
+	--color-brand: var(--brand);
+	--color-brand-strong: var(--brand-strong);
+	--color-brand-medium: var(--brand-medium);
+	--color-fg-brand: var(--fg-brand);
+	--color-neutral-primary: var(--neutral-primary);
+	--color-neutral-secondary-soft: var(--neutral-secondary-soft);
+	--color-neutral-tertiary: var(--neutral-tertiary);
+	--color-border-default: var(--border-default);
+	--color-text-heading: var(--text-heading);
+	--color-text-body: var(--text-body);
+	--radius-base: var(--rounded-base);
+}
+
+:root {
+	/* Brand colors - Blue theme */
+	--brand: oklch(.645 .246 16.439);
+	--brand-strong: oklch(.712 .194 13.428);
+	--brand-medium: oklch(.81 .117 11.638);
+	--fg-brand:oklch(.645 .246 16.439);
+
+	/* Neutral colors */
+	--neutral-primary: oklch(1 0 0);
+	--neutral-secondary-soft: oklch(0.98 0 0);
+	--neutral-tertiary: oklch(0.93 0 0);
+    --neutral-quaternary: oklch(.885 .062 18.334);
+
+	/* Card specific */
+	--card-bg: oklch(.455 .188 13.697); 
+
+	/* Border */
+	--border-default: oklch(0.90 0 0);
+
+	/* Text */
+	--text-heading: oklch(0.15 0 0);
+	--text-body: oklch(0.50 0 0);
+
+	/* Shadow */
+	--shadow-xs: 0 1px 2px 0 oklch(.271 .105 12.094);
+
+	/* Border radius */
+	--rounded-base: 0.5rem;
+}

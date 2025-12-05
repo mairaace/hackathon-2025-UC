@@ -1,0 +1,14 @@
+---
+// Blockquote component, made for reusable quotes throughout the site
+interface Props {
+  text: string;
+  author?: string;
+}
+
+const {text, author} = Astro.props;
+---
+
+<blockquote class="text-xl italic font-semibold text-center text-[var(--text-heading)]">
+  <p>"{text}"</p>
+  {author && <footer class="mt-2 text-sm text-[var(--text-body)]">— {author}</footer>}
+</blockquote>

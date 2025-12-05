@@ -1,0 +1,21 @@
+---
+// FAQ component for questions and answers
+interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="border-b border-[var(--border-default)] py-4">
+  <details class="group">
+    <summary class="flex justify-between items-center cursor-pointer list-none font-semibold text-[var(--text-heading)] hover:text-[var(--fg-brand)]">
+      <span>{question}</span>
+      <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </summary>
+    <p class="mt-3 text-[var(--text-body)] leading-relaxed">{answer}</p>
+  </details>
+</div>

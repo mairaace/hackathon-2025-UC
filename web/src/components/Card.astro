@@ -1,0 +1,46 @@
+---
+// Card component for reusable content cards
+interface Props {
+  title: string;
+  description: string;
+  inputPlaceholder?: string;
+  inputLabel?: string;
+  buttonText?: string;
+}
+
+const { title, description, inputPlaceholder = "Ingresa aquí...", inputLabel, buttonText = "Buscar" } = Astro.props;
+---
+
+<div class="bg-[var(--card-bg)] block max-w-sm p-6 border border-[var(--border-default)] rounded-[var(--rounded-base)] shadow-[var(--shadow-xs)]">
+
+  <h5 class="mb-3 text-2xl font-semibold tracking-tight text-[var(--neutral-quaternary)] leading-8">
+    {title}
+  </h5>
+  
+  <p class="text-[var(--neutral-primary)] mb-6">
+    {description}
+  </p>
+  
+  <div class="mb-4">
+    {inputLabel && (
+      <label class="block mb-2.5 text-sm font-medium text-[var(--neutral-primary)]">
+        {inputLabel}
+      </label>
+    )}
+    <input 
+      type="text" 
+      class="bg-[var(--neutral-secondary-soft)] border border-[var(--border-default)] text-[var(--text-heading)] text-sm rounded-[var(--rounded-base)] focus:ring-[var(--brand)] focus:border-[var(--brand)] block w-full px-3 py-2.5 shadow-[var(--shadow-xs)] placeholder:text-[var(--text-body)]" 
+      placeholder={inputPlaceholder}
+    />
+  </div>
+
+  <button 
+    type="button"
+    class="inline-flex items-center text-white bg-[var(--brand)] box-border border border-transparent hover:bg-[var(--brand-strong)] focus:ring-4 focus:ring-[var(--brand-medium)] shadow-[var(--shadow-xs)] font-medium leading-5 rounded-[var(--rounded-base)] text-sm px-4 py-2.5 focus:outline-none w-full justify-center"
+  >
+    {buttonText}
+    <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+    </svg>
+  </button>
+</div>
