@@ -22,19 +22,6 @@ const { title, description, inputPlaceholder = "Ingresa aquí...", inputLabel, b
     <p class="text-[var(--neutral-primary)] mb-6">
       {description}
     </p>
-    
-    <div class="mb-4">
-      {inputLabel && (
-        <label class="block mb-2.5 text-sm font-medium text-[var(--neutral-primary)]">
-          {inputLabel}
-        </label>
-      )}
-      <input 
-        type="text" 
-        class="bg-[var(--neutral-secondary-soft)] border border-[var(--border-default)] text-[var(--text-heading)] text-sm rounded-[var(--rounded-base)] focus:ring-[var(--brand)] focus:border-[var(--brand)] block w-full px-3 py-2.5 shadow-[var(--shadow-xs)] placeholder:text-[var(--text-body)]" 
-        placeholder={inputPlaceholder}
-      />
-    </div>
 
     <button 
       type="button"

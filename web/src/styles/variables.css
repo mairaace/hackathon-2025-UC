@@ -28,6 +28,8 @@
 
 	/* Card specific */
 	--card-bg: oklch(.455 .188 13.697); 
+    --card-div: oklch(53.271% 0.16235 4.332);
+    --card-div2: oklch(.645 .246 16.439);
 
 	/* Border */
 	--border-default: oklch(0.90 0 0);

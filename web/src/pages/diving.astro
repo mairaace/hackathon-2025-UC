@@ -10,13 +10,13 @@ import Layout from '../layouts/Layout.astro'
         </p>
         
         <div class="mb-6">
-            <label class="block mb-2.5 text-sm font-medium text-[var(--neutral-primary)]">
+            <label class="block mb-2.5 text-sm font-medium text-[var(--text-heading)]">
                 Sigla del curso
             </label>
             <input 
                 type="text" 
                 id="sigla"
-                class="bg-[var(--neutral-secondary-soft)] border border-[var(--border-default)] text-[var(--text-heading)] text-sm rounded-[var(--rounded-base)] focus:ring-[var(--brand)] focus:border-[var(--brand)] block w-full px-3 py-2.5 shadow-[var(--shadow-xs)] placeholder:text-[var(--text-body)]" 
+                class="bg-[var(--neutral-secondary-soft)] border border-[var(--border-default)] text-[var(--text-heading)] text-sm rounded-[var(--rounded-base)] focus:ring-[var(--brand-strong)] focus:border-[var(--brand-strong)] block w-full px-3 py-2.5 shadow-[var(--shadow-xs)] placeholder:text-[var(--text-body)]" 
                 placeholder="Ej: AST101, SUS1000..."
             />
         </div>
@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro'
         <button 
             id="btnBuscar"
             type="button"
-            class="inline-flex items-center text-white bg-[var(--brand)] box-border border border-transparent hover:bg-[var(--brand-strong)] focus:ring-4 focus:ring-[var(--brand-medium)] shadow-[var(--shadow-xs)] font-medium leading-5 rounded-[var(--rounded-base)] text-sm px-4 py-2.5 focus:outline-none w-full justify-center"
+            class="inline-flex items-center text-white bg-[var(--brand-strong)] box-border border border-transparent hover:bg-[var(--brand-strong)] focus:ring-4 focus:ring-[var(--brand-strong)] shadow-[var(--shadow-xs)] font-medium leading-5 rounded-[var(--rounded-base)] text-sm px-4 py-2.5 focus:outline-none w-full justify-center"
         >
             Navegar cursos similares
         </button>
@@ -70,12 +70,12 @@ import Layout from '../layouts/Layout.astro'
 
             data.similares.forEach(curso => {
                 html += `
-                    <li class="bg-[var(--card-bg)] p-4 border border-[var(--border-default)] rounded-[var(--rounded-base)]">
+                    <li class="bg-[var(--card-div2)] p-4 border border-[var(--border-default)] rounded-[var(--rounded-base)]">
                         <strong class="text-lg">${curso.rank}. ${curso.sigle}</strong> - ${curso.nombre}
                         <br/>
-                        <small class="text-[var(--neutral-primary)]">Área: ${curso.area}</small>
+                        <small class="text-[var(--neutral-quaternary)]">Área: ${curso.area}</small>
                         <br/>
-                        <small class="text-[var(--brand)] font-semibold">Similitud: ${curso.similitud}%</small>
+                        <small class="text-[var(--neutral-quaternary)] font-semibold">Similitud: ${curso.similitud}%</small>
                     </li>
                 `;
             });
